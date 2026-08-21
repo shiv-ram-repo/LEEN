@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.pt
+*.m8
+runs/
+data/
+*.egg-info/

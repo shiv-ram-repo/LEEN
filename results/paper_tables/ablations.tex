@@ -1,0 +1,15 @@
+% Ablation table regenerated. Rows present only if preds exist.
+\begin{table*}[t]\centering\small\setlength{\tabcolsep}{4pt}
+\caption{Component ablations. E2 and no-OOD are 3-seed means where available; scalar-head and no-ESM-drop use the seeds present in the repository. Ssym-i shows the energy head retains reverse-mutation signal while the scalar head does not.}
+\label{tab:ablations}
+\begin{tabular}{l ccccc cc cc c}
+\toprule
+& S669 & S461 & S783 & S2648 & S8754 & S571 & S4346 & Ssym-d & Ssym-i & Mega \\
+\midrule
+E2 (energy head, full) & $0.470{\pm}0.009$ & $0.657{\pm}0.006$ & $0.643{\pm}0.005$ & $0.580{\pm}0.006$ & $0.565{\pm}0.003$ & $0.393{\pm}0.007$ & $0.491{\pm}0.006$ & $0.507{\pm}0.009$ & $0.357{\pm}0.022$ & $0.664{\pm}0.001$ \\
+\quad scalar head & $0.080{\pm}0.082$ & $0.115{\pm}0.120$ & $0.015{\pm}0.050$ & $0.019{\pm}0.069$ & $-0.007{\pm}0.031$ & $0.024{\pm}0.030$ & $0.003{\pm}0.050$ & $-0.014{\pm}0.149$ & $-0.070{\pm}0.144$ & $-0.047{\pm}0.048$ \\
+\quad no OOD loss & $0.445{\pm}0.006$ & $0.620{\pm}0.009$ & $0.647{\pm}0.009$ & $0.579{\pm}0.008$ & $0.568{\pm}0.004$ & $0.372{\pm}0.017$ & $0.488{\pm}0.010$ & $0.529{\pm}0.024$ & $0.350{\pm}0.029$ & $0.667{\pm}0.003$ \\
+\quad no ESM-drop & $0.430{\pm}0.001$ & $0.629{\pm}0.012$ & $0.624{\pm}0.018$ & $0.551{\pm}0.007$ & $0.548{\pm}0.000$ & $0.381{\pm}0.006$ & $0.474{\pm}0.002$ & $0.474{\pm}0.014$ & $0.304{\pm}0.004$ & $0.659{\pm}0.001$ \\
+\bottomrule
+\end{tabular}
+\end{table*}
