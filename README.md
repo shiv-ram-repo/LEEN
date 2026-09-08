@@ -52,21 +52,9 @@ results/                  Released per-sample predictions + regenerated tables
 
 ---
 
-## 3. The `protstab_data` package
+## 3. Data preparation
 
-`protstab_data/` is our own standalone data-loading package (named for
-**prot**ein **stab**ility **data**), developed as part of this project with no
-dependency on any external stability-prediction package. It provides PDB
-parsing, ProteinMPNN-style structural featurization, and dataset classes for all
-eleven benchmarks (Megascale, FireProt-HF, Ssym direct/inverse, S669, S461,
-S783, S8754, S2648, S571, S4346). It is bundled here and installed with
-`pip install -e protstab_data/`.
-
----
-
-## 4. Data preparation
-
-### 4.1 Download the datasets
+### 3.1 Download the datasets
 
 | Dataset | Source |
 |---|---|
@@ -86,7 +74,7 @@ data/dataset/megascale/AlphaFold_model_PDBs/<wt_name>.pdb
 data/dataset/<benchmark>/...                             # one dir per benchmark
 ```
 
-### 4.2 Sequence-similarity filtering (MMseqs2)
+### 3.2 Sequence-similarity filtering (MMseqs2)
 
 All benchmark proteins are held non-redundant with the Megascale training set at
 **0.25 sequence identity**. The filtering result is stored as
@@ -102,7 +90,7 @@ mmseqs easy-search benchmark.fasta train.fasta mmseq_mut_search_0.25.m8 tmp \
 list of removed proteins/rows (28,133 rows / 94 benchmark-overlapping proteins
 removed at 0.25). The retained/removed lists are released under `results/`.
 
-### 4.3 Precompute frozen ESM-2 embeddings
+### 3.3 Precompute frozen ESM-2 embeddings
 
 ```bash
 python scripts/preprocess/precompute_esm.py --data_root DATA --output esm_cache_full.pt --fp16
@@ -110,7 +98,7 @@ python scripts/preprocess/precompute_esm.py --data_root DATA --output esm_cache_
 
 ---
 
-## 5. Training
+## 4. Training
 
 Main model (E2 = ESM-gated EGNN + cross-attention + OOD-margin loss):
 
@@ -138,7 +126,7 @@ Spearman, AdamW lr 1e-4, energy_hidden_dim 256, seeds 42/43/44.
 
 ---
 
-## 6. Evaluation and results
+## 5. Evaluation and results
 
 ```bash
 # per-sample predictions for a checkpoint
@@ -161,7 +149,7 @@ single source of truth for all reported numbers.
 
 ---
 
-## 7. Controls and diagnostics
+## 6. Controls and diagnostics
 
 - `scripts/experiments/verify_antisymmetry.py` — forward/reverse violation under
   independently constructed inputs (primary E2).
