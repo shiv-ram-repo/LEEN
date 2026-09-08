@@ -1,4 +1,4 @@
-# LEEN — Local Equivariant Energy Network
+# LEEN: Local Equivariant Energy Network
 
 ΔΔG protein stability prediction via an ESM-gated E(n)-equivariant energy
 network with an energy-difference readout (ΔΔG = E(mut) − E(wt)), evaluated on
@@ -157,7 +157,7 @@ single source of truth for all reported numbers.
   symmetrized variant (violation ≈ 1e-7, i.e. exact to float precision).
 - `scripts/experiments/af_vs_pdb_control.py` — AlphaFold-vs-experimental-PDB
   structure-source control (ΔρE2 ≈ −0.003 on S669 and S461).
-- `scripts/eval/measure_params.py` — trainable/total parameters, peak memory,
+- `scripts/eval/measure_params.py`: trainable/total parameters, peak memory,
   throughput.
 
 ---
