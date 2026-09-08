@@ -1,0 +1,80 @@
+# LEEN default configuration
+# -----------------------------------------------------------
+
+data:
+  megascale_hf_repo: "RosettaCommons/MegaScale"
+  structures_config: "AlphaFold_model_PDBs"
+  mutations_config: "dataset3_single"
+  processed_dir: "data/processed"
+  pdb_cache_dir: "data/pdb_cache"
+  # Local environment radius (Angstroms)
+  env_radius: 10.0
+  # Edge distance cutoff (Angstroms)
+  edge_cutoff: 8.0
+  # Maximum number of neighbor residues
+  max_neighbors: 64
+  # MMseqs2 filtering threshold
+  seq_identity_threshold: 0.30
+
+model:
+  # Amino acid embedding
+  aa_embed_dim: 64
+  # Node feature dimension (after initial projection)
+  node_dim: 128
+  # Hidden dimension for MLPs inside EGNN
+  hidden_dim: 256
+  # Edge feature dimension
+  edge_dim: 16
+  # Number of EGNN layers
+  num_layers: 6
+  # Whether EGNN updates coordinates
+  update_coords: true
+  # Dropout rate
+  dropout: 0.1
+  # Energy head hidden dimension
+  energy_hidden_dim: 256
+
+training:
+  seed: 42
+  seeds: [42, 43, 44]
+  batch_size: 32
+  learning_rate: 1.0e-4
+  weight_decay: 1.0e-4
+  max_epochs: 200
+  patience: 20   # early stopping on val Spearman
+  grad_clip: 1.0
+  num_workers: 4
+
+  # Loss weights
+  loss: "bmc"           # "mse" | "huber" | "bmc"
+  bmc_sigma_init: 1.0   # initial learnable sigma for BMC
+
+  # OOD-margin regularization
+  ood_margin:
+    enabled: true
+    sigma: 0.20
+    weight: 0.5
+
+  # Antisymmetry is built into the architecture (energy-difference),
+  # so no antisymmetry loss is needed. But we can log the diagnostic.
+  log_antisymmetry: true
+
+evaluation:
+  benchmarks:
+    - S669
+    - S461
+    - Ssym_direct
+    - Ssym_inverse
+    - S571
+    - S783
+    - S2648
+    - S4346
+    - S8754
+    - FireProt_HF
+  primary_metric: "spearman"
+
+logging:
+  use_wandb: false
+  project: "leen"
+  log_every: 50
+  save_dir: "runs"

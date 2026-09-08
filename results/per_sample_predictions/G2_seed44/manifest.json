@@ -1,0 +1,46 @@
+{
+  "megascale_test": {
+    "n": 28172,
+    "n_proteins": 28
+  },
+  "fireport_hf": {
+    "n": 2578,
+    "n_proteins": 89
+  },
+  "ssym_direct": {
+    "n": 342,
+    "n_proteins": 15
+  },
+  "ssym_inverse": {
+    "n": 342,
+    "n_proteins": 342
+  },
+  "s669": {
+    "n": 669,
+    "n_proteins": 94
+  },
+  "s461": {
+    "n": 461,
+    "n_proteins": 48
+  },
+  "s783": {
+    "n": 783,
+    "n_proteins": 55
+  },
+  "s8754": {
+    "n": 8228,
+    "n_proteins": 274
+  },
+  "s2648": {
+    "n": 2648,
+    "n_proteins": 132
+  },
+  "s571": {
+    "n": 571,
+    "n_proteins": 39
+  },
+  "s4346": {
+    "n": 3969,
+    "n_proteins": 281
+  }
+}

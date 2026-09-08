@@ -1,0 +1,8 @@
+
+# Large artifacts (release via Zenodo, not git)
+*.pt
+*.m8
+esm_cache*.pt
+sym_esm_cache*.pt
+runs/
+CHECKPOINTS_for_zenodo/

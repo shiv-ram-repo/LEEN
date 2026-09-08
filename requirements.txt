@@ -1,0 +1,19 @@
+# Core deep-learning stack
+torch>=2.0
+numpy>=1.23
+scipy>=1.9
+pandas>=1.5
+tqdm>=4.64
+PyYAML>=6.0
+
+# Protein language model (frozen ESM-2 embeddings)
+fair-esm>=2.0.0
+
+# Notes:
+# - MMseqs2 is an EXTERNAL binary (not a pip package), required only to
+#   reproduce the sequence-similarity filtering. Install separately:
+#     conda install -c bioconda mmseqs2
+#   or see https://github.com/soedinglab/MMseqs2
+# - matplotlib is only needed to regenerate figures (figs/):
+#     pip install matplotlib
+# - protstab_data (bundled in this repo) is installed via `pip install -e protstab_data/`
